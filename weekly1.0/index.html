@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Weekly 1.0</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly 1.0</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("../galaxie.jpg") no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Chakra centré */
+        .chakra {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.95;
+        }
+
+        /* Logo en bas à droite */
+        .logo {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 140px;
+            opacity: 0.85;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Weekly 1.0</h1>
-  <p>Page en construction.</p>
+
+    <!-- Chakra au centre -->
+    <img src="../chakra.jpg" alt="chakra" class="chakra">
+
+    <!-- Logo discret en bas à droite -->
+    <img src="../lotux chakra.png" alt="logo" class="logo">
+
 </body>
 </html>
-
