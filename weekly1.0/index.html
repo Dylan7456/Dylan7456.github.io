@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly 1.0</title>
+    <title>Weekly 2.0</title>
 
     <style>
         body {
@@ -17,37 +17,120 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            animation: fadeInBg 2s ease forwards;
         }
 
-        /* Chakra centré */
-        .chakra {
-            width: 300px;
-            height: auto;
+        /* Chakra animé en arrière-plan */
+        .chakra-bg {
             position: absolute;
+            width: 500px;
+            opacity: 0.15;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: 0.95;
+            animation: rotate 60s linear infinite, halo 6s ease-in-out infinite;
+            z-index: 1;
         }
 
-        /* Logo en bas à droite */
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes halo {
+            0% { filter: drop-shadow(0 0 5px #ffffff); }
+            50% { filter: drop-shadow(0 0 25px #a67bff); }
+            100% { filter: drop-shadow(0 0 5px #ffffff); }
+        }
+
+        @keyframes fadeInBg {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Panneau central glassmorphism */
+        .panel {
+            width: 80%;
+            max-width: 900px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+            z-index: 2;
+            animation: slideUp 1.2s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(60px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Tableau vertical */
+        .week {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .day {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            font-size: 1.3rem;
+            color: white;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .day:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+
+        /* Logo */
         .logo {
             position: absolute;
             bottom: 20px;
             right: 20px;
             width: 140px;
-            opacity: 0.85;
+            opacity: 0;
+            animation: fadeInLogo 3s ease forwards 1.5s;
+            z-index: 3;
+        }
+
+        @keyframes fadeInLogo {
+            from { opacity: 0; }
+            to { opacity: 0.85; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Chakra au centre -->
-    <img src="../chakra.jpg" alt="chakra" class="chakra">
+    <!-- Chakra animé en fond -->
+    <img src="../chakra.jpg" class="chakra-bg" alt="chakra">
 
-    <!-- Logo discret en bas à droite -->
-    <img src="../lotux chakra.png" alt="logo" class="logo">
+    <!-- Panneau central -->
+    <div class="panel">
+        <div class="week">
+            <div class="day">Lundi</div>
+            <div class="day">Mardi</div>
+            <div class="day">Mercredi</div>
+            <div class="day">Jeudi</div>
+            <div class="day">Vendredi</div>
+            <div class="day">Samedi</div>
+            <div class="day">Dimanche</div>
+        </div>
+    </div>
+
+    <!-- Logo -->
+    <img src="../lotux chakra.png" class="logo" alt="logo">
 
 </body>
 </html>
+
